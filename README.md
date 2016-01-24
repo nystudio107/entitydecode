@@ -37,4 +37,4 @@ Under the hood, it just calls the PHP function `html_entity_decode()` and return
 
 * Initial release
 
-Brought to you by [Andrew Welch](http://nystudio107.com)
+Brought to you by [nystudio107](http://nystudio107.com)
