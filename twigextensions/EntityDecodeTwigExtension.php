@@ -18,17 +18,26 @@
  * @since     1.0.0
  */
 
-namespace Craft;
+namespace nystudio107\entitydecode\twigextensions;
 
-use Twig_Extension;
-use Twig_Filter_Method;
+use nystudio107\entitydecode\EntityDecode;
 
+use Craft;
+
+/**
+ * EntityDecode twig extension
+ *
+ * @author    nystudio107
+ * @package   EntityDecode
+ * @since     1.0.0
+ */
 class EntityDecodeTwigExtension extends \Twig_Extension
 {
+
     /**
-     * Returns the name of the extension.
+     * Return our Twig Extension name
      *
-     * @return string The extension name
+     * @return string
      */
     public function getName()
     {
@@ -36,31 +45,23 @@ class EntityDecodeTwigExtension extends \Twig_Extension
     }
 
     /**
-     * Returns an array of Twig filters, used in Twig templates via:
-     *
-     *      {{ 'something' | someFilter }}
-     *
-     * @return array
+     * @inheritdoc
      */
     public function getFilters()
     {
-        return array(
-            'unescape' => new \Twig_Filter_Method($this, 'unescape'),
-        );
+        return [
+            new \Twig_SimpleFilter('unescape', [$this, 'unescape']),
+        ];
     }
 
     /**
-     * Returns an array of Twig functions, used in Twig templates via:
-     *
-     *      {% set this = someFunction('something') %}
-     *
-     * @return array
+     * @inheritdoc
      */
     public function getFunctions()
     {
-        return array(
-            'unescape' => new \Twig_Function_Method($this, 'unescape'),
-        );
+        return [
+            new \Twig_SimpleFunction('unescape', [$this, 'unescape']),
+        ];
     }
 
     /**
