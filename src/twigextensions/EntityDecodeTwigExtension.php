@@ -31,7 +31,7 @@ use Craft;
  * @package   EntityDecode
  * @since     1.0.0
  */
-class EntityDecodeTwigExtension extends \Twig_Extension
+class EntityDecodeTwigExtension extends \Twig\Extension\AbstractExtension
 {
 
     /**
@@ -50,7 +50,7 @@ class EntityDecodeTwigExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('unescape', [$this, 'unescape']),
+            new \Twig\TwigFilter('unescape', [$this, 'unescape']),
         ];
     }
 
@@ -60,7 +60,7 @@ class EntityDecodeTwigExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('unescape', [$this, 'unescape']),
+            new \Twig\TwigFunction('unescape', [$this, 'unescape']),
         ];
     }
 
